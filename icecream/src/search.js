@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 const APIkey = "f757xwkJ68TIXrXDLH2U0dAjh79rIzWVmJg5iLNnmk9lCOaefU0eMusllNNG_5gdvFwEKe5blDP-tw5KcjecPtzljiRCP7ZVBh_MK35CnfubxvaLtFW_tPcbE0vbYXYx"
 const yelpAPI = "https://api.yelp.com/v3/businesses/search?term=icecream&total=10"
-
+const axios = require('axios').default; 
 
 function Search() {
 
@@ -14,7 +14,7 @@ const[items, setItems] = useState([]);
 
 
 useEffect(() => {
-    fetch(yelpAPI)
+    axios.get(yelpAPI)
     .then(res => res.json())
     .then(
         (result) => {
