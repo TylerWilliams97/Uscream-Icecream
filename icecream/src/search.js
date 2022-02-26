@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 
-const APIkey = "f757xwkJ68TIXrXDLH2U0dAjh79rIzWVmJg5iLNnmk9lCOaefU0eMusllNNG_5gdvFwEKe5blDP-tw5KcjecPtzljiRCP7ZVBh_MK35CnfubxvaLtFW_tPcbE0vbYXYx"
-const yelpAPI = "https://api.yelp.com/v3/businesses/search?term=icecream&total=10"
+const APIkey = "RSt_Dgt6TDPonLszaQ-bJ_OF6LdX-QPwWHJBqjHH_Cgw_B4V7d26cwIwCdbUtjCaEJVd02527I8KSSh7E1C65ShDiG67tM4P4dlGqvk0iB4pZoZtSnzW4t9h7XMZYnYx-tw5KcjecPtzljiRCP7ZVBh_MK35CnfubxvaLtFW_tPcbE0vbYXYx"
+const yelpAPI = "https://api.yelp.com/v3/businesses/search?term=delis&latitude=37.786882&longitude=-122.399972"
 const axios = require('axios').default; 
 
 function Search() {
@@ -14,7 +14,9 @@ const[items, setItems] = useState([]);
 
 
 useEffect(() => {
-    axios.get(yelpAPI)
+    axios.get(yelpAPI, {headers:{'Authorization':`Bearer ${APIkey}`}}
+  
+    )
     .then(res => res.json())
     .then(
         (result) => {
